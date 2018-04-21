@@ -22,6 +22,13 @@
 #include <sourcemod>
 #include <sdktools>
 #include <mostactive>
+#include <multicolors>
+
+// Colors
+#define YELLOW               "\x01"
+#define NAME_TEAMCOLOR       "\x02"
+#define LIGHTGREEN           "\x03"
+#define GREEN                "\x04"
 
 #define IDAYS 26
 
@@ -70,6 +77,7 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char [] error, int err_ma
 
 public void OnPluginStart()
 {
+    LoadTranslations("mostactive.phrases.txt");
 	CreateConVar("sm_mostactive_version", VERSION, "version", FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY);
 	RegConsoleCmd("sm_active", DOMenu);
 	RegConsoleCmd("sm_wasted", Command_Wasted);
@@ -350,7 +358,7 @@ public void ShowTotal(int client)
 	}
 	else
 	{
-		PrintToChat(client, " \x03Rank System is now not avilable");
+		PrintToChat(client, "%t", "Rank System is now not avilable");
 	}
 }
 
@@ -408,7 +416,7 @@ public void ShowSpec(int client)
 	}
 	else
 	{
-		PrintToChat(client, " \x03Rank System is now not avilable");
+		PrintToChat(client, "%t", "Rank System is now not avilable");
 	}
 }
 
@@ -466,7 +474,7 @@ public void ShowTerror(int client)
 	}
 	else
 	{
-		PrintToChat(client, " \x03Rank System is now not avilable");
+		PrintToChat(client, "%t", "Rank System is now not avilable");
 	}
 }
 
@@ -524,7 +532,7 @@ public void ShowCT(int client)
 	}
 	else
 	{
-		PrintToChat(client, " \x03Rank System is now not avilable");
+		PrintToChat(client, "%t", "Rank System is now not avilable");
 	}
 }
 
@@ -713,7 +721,7 @@ public int SQLShowPlayTime(Handle owner, Handle hndl, char [] error, any data)
 	}
 	if(!SQL_GetRowCount(hndl) || !SQL_FetchRow(hndl)) 
 	{
-		PrintToChat(client, " \x03steamid not found in the database");
+		PrintToChat(client, "%t", "steamid not found in the database");
 		return;
 	}
 	char name[124];
@@ -852,7 +860,7 @@ public int SQLShowWasteTime(Handle owner, Handle hndl, char [] error, any client
 	{
 		char buffer[124];
 		ShowTimer(SQL_FetchInt(hndl, 0), buffer, sizeof(buffer));
-		PrintToChatAll("[Most Active] Players wasted a total of %s on this server", buffer);
+		PrintToChatAll("%t", "Players wasted a total of time on this server", buffer);
 	}
 
 	delete hndl;
