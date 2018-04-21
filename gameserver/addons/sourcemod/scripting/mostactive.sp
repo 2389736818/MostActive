@@ -17,6 +17,7 @@
  */
 
 #pragma semicolon 1
+#pragma tabsize 0
 #pragma newdecls required
 
 #include <sourcemod>
