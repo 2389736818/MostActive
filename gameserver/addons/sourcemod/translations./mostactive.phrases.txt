@@ -1,0 +1,15 @@
+"Phrases"
+{
+	"Rank System is now not avilable"
+	{
+		"en"			"{LIGHTGREEN}Rank System is now not avilable"
+	}
+	"steamid not found in the database"
+	{
+		"en"			"steamid not found in the database"
+	}
+	"PPlayers wasted a total of time on this server"
+	{
+		"en"			"[Most Active] Players wasted a total of %s on this server"
+	}
+}
