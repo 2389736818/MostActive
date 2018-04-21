@@ -78,7 +78,7 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char [] error, int err_ma
 
 public void OnPluginStart()
 {
-    LoadTranslations("mostactive.phrases.txt");
+        LoadTranslations("mostactive.phrases.txt");
 	CreateConVar("sm_mostactive_version", VERSION, "version", FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY);
 	RegConsoleCmd("sm_active", DOMenu);
 	RegConsoleCmd("sm_wasted", Command_Wasted);
